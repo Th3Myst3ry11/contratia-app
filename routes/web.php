@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,32 @@ Route::get('/profile',function () {
 Route::get('/profileEdit',function () {
     return view('components/profileEdit');
 });
-Route::get('/login', function(){
-    return view('users/login');
-});
+
 Route::post('/users', [UserController::class, 'store']);
 
-Route::get('/register', [UserController::class, 'create']);
 
+Route::get('/register', [UserController::class, 'create']);
+//log user out
+Route::post('/logout', [UserController::class, 'logout']);
+//show login form
+Route::get('/login' , [UserController::class, 'login']);
+//log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+ /**
+    * Verification Routes
+    */
+    Route::get('/email/verify', [VerificationController::class,'show'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+
+    //only authenticated can access this group
+Route::group(['middleware' => ['auth']], function() {
+    //only verified account can access with this group
+    Route::group(['middleware' => ['verified']], function() {
+            /**
+             * Dashboard Routes
+             */
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    });
+});

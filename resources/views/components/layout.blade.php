@@ -103,6 +103,7 @@
             </button>
     
             <!-- Profile dropdown -->
+            @auth
             <div class="relative ml-3" onclick="clickFunction()">
               <div onclick="clickFunction()">
                 <button onclick="clickFunction()" type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -110,7 +111,11 @@
                   <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                 </button>
               </div>
-    
+              @else
+            </div>
+            <a  href="/login" class="block px-4 py-2 text-sm text-white-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign in</a>
+          </div>
+          @endauth
               <!--
                 Dropdown menu, show/hide based on menu state.
     
@@ -126,13 +131,18 @@
                 
                   <a  href="/profile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                   <a href="profileEdit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                  <a  href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-                
+                  <a href="{{ route('dashboard.index') }}" class="btn btn-lg btn-warning me-2">Goto Dashboard</a>
+                  @auth
+                  <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                      <li  class="block px-2.5 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</li>
+                    </button>
+                  </form>
+                @endauth
               
               </div>
-            </div>
-            <a  href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign in</a>
-          </div>
+            
         </div>
       </div>
     
