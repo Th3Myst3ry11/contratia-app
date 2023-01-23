@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GoogleAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
@@ -54,3 +55,9 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     });
 });
+
+//GOOGle Auth 
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
+
+
