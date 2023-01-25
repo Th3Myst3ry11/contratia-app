@@ -130,8 +130,7 @@
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 
                   <a  href="/profile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                  <a href="profileEdit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                  <a href="{{ route('dashboard.index') }}" class="btn btn-lg btn-warning me-2">Goto Dashboard</a>
+                  <a href="/profileEdit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
                   @auth
                   <form class="inline" method="POST" action="/logout">
                     @csrf

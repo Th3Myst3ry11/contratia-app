@@ -38,23 +38,7 @@ Route::get('/login' , [UserController::class, 'login']);
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
- /**
-    * Verification Routes
-    */
-    Route::get('/email/verify', [VerificationController::class,'show'])->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
-    Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
-
-    //only authenticated can access this group
-Route::group(['middleware' => ['auth']], function() {
-    //only verified account can access with this group
-    Route::group(['middleware' => ['verified']], function() {
-            /**
-             * Dashboard Routes
-             */
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-    });
-});
+ 
 
 //GOOGle Auth 
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');

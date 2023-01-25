@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('firstName',50);
-            $table->string('lastName',50);
-            $table->string('contact',50);
-            $table->string('Experience',50);
-            $table->string('Education',50);
-            $table->string('profile_email',50);
-            $table->string('Birthday',50);
-            $table->string('current_address',255);
-            $table->string('permanent_address',50);
-            $table->string('gender',1);
-            $table->bigInteger('user_fk')->unsigned()->index()->nullable();
+            $table->string('firstname',50);
+            $table->string('lastname',50);
+            $table->string('phone',50)->nullable();
+            $table->string('email',50);
+            $table->string('rate',50);
+            $table->string('currency',10);
+            $table->string('city',50);
+            $table->string('country',50);
+            $table->integer('recomendations');
+            $table->text('description')->nullable();
+            $table->bigInteger('user_fk')->unsigned()->index();
             $table->foreign('user_fk')->references('id')->on('users')->onDelete('cascade');
                
             $table->timestamps();
