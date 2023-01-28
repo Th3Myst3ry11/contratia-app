@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Controller;
 use Illuminate\Auth\Events\Registered;
 
 class UserController extends Controller
@@ -32,7 +31,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/email/verify')->with('message', 'User created and logged in');
+        return redirect('/')->with('message', 'User created and logged in');
     }
 
       // Logout User

@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('job', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('email');
-            $table->string('phone');
-            $table->string('country');
-            $table->string('city');   
+            $table->string('title',30);
+            $table->string('email',30);
+            $table->string('phone',30);
+            $table->string('country',30);
+            $table->string('city',30);
+            $table->string('offer',30);
+            $table->string('description',255);
             $table->bigInteger('user_fk')
             ->unsigned()
             ->index()

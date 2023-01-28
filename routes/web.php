@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\JobsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
+use App\Models\JobModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +40,18 @@ Route::get('/login' , [UserController::class, 'login']);
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
- 
+Route::get('/jobs', [JobsController::class, 'create']);
 
+Route::post('/giga/create', [JobsController::class, 'store'] );
+ 
+Route::get('/gig/{id}', function ($id) {
+    $gig = JobModel::find($id);
+
+    return view('components.gig-page', ['gig' => $gig]);
+});
+Route::get('/create-gig',function () {
+    return view('components/post-project');
+});
 //GOOGle Auth 
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/callback', [GoogleAuthController::class, 'callbackGoogle']);
