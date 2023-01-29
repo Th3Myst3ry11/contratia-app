@@ -20,11 +20,12 @@ class ProfileModel extends Model
         'rate',
         'currency',
         'city',
-        'country'
+        'country',
+        'description'
 
     ];
 
     public function skillProfileModel(){
-        $this->hasMany(SkillProfileModel::class);
+        return $this->hasMany(SkillProfileModel::class);
     }
 }

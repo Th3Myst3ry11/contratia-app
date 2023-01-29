@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('currency',10);
             $table->string('city',50);
             $table->string('country',50);
-            $table->integer('recomendations');
+            $table->integer('recomendations')->nullable();
             $table->text('description')->nullable();
-            $table->bigInteger('user_fk')->unsigned()->index();
+            $table->bigInteger('user_fk')->unsigned()->index()->nullable();
             $table->foreign('user_fk')->references('id')->on('users')->onDelete('cascade');
                
             $table->timestamps();

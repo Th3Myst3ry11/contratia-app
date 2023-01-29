@@ -14,6 +14,9 @@ class JobModel extends Model
     protected $primaryKey = 'id';
 
     protected $fillable =[
+        'title',
+        'offer',
+        'description',
         'email',
         'phone',
         'country',
@@ -21,7 +24,7 @@ class JobModel extends Model
     ];
 
     public function skillJobModel(){
-        $this->hasMany(SkillJobModel::class);
+        return $this->hasMany(SkillJobModel::class);
     }
     
 }

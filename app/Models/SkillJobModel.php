@@ -15,6 +15,6 @@ class SkillJobModel extends Model
     
 
     public function jobModel(){
-        $this->belongsTo(JobModel::class);
+       return $this->belongsTo(JobModel::class);
     }
 }

@@ -6,7 +6,6 @@ use App\Models\JobModel;
 use App\Models\SkillJobModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Queue\Jobs\JobName;
 
 class JobsController extends Controller
 {
@@ -23,7 +22,7 @@ class JobsController extends Controller
     }
 
     public function store(Request $request){
-      $formFields = $request->validate([
+      $formField = $request->validate([
         'title' => 'required',
         'country' => 'required',
         'phone' => 'required',
@@ -32,8 +31,8 @@ class JobsController extends Controller
         'city' => 'required',
         'description' => 'required'
     ]);
-
-    JobModel::create($formFields);
+dd($formField);
+    JobModel::create($formField);
     return redirect('/jobs')->with('message', 'gig created successfully!');
     }
     public function getDetails($id)

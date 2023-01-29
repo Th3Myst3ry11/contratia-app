@@ -24,6 +24,7 @@ class UserController extends Controller
         $formFields['password'] = bcrypt($formFields['password']);
 
         //Create user 
+       
         $user = User::create($formFields);
 
         //email registered auth

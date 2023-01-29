@@ -15,6 +15,6 @@ class SkillProfileModel extends Model
    
 
     public function profileModel(){
-        $this->belongsTo(profileModel::class);
+        return $this->belongsTo(profileModel::class);
     }
 }
