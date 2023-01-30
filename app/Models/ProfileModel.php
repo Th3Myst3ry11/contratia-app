@@ -21,7 +21,8 @@ class ProfileModel extends Model
         'currency',
         'city',
         'country',
-        'description'
+        'description',
+        'user_fk'
 
     ];
 

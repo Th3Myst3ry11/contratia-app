@@ -20,7 +20,7 @@
                 <div class="row mt-2">
                     
                     <div class="col-md-6"><label class="labels">firstname</label>
-                        <input type="text" class="form-control" placeholder="first name" name="firstname">
+                        <input type="text" class="form-control" placeholder="first name" name="firstname" required>
                         @error('firstname')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
@@ -28,7 +28,7 @@
                     
                    
                     <div class="col-md-6"><label class="labels">Surname</label>
-                        <input type="text" class="form-control" name="lastname" placeholder="surname">
+                        <input type="text" class="form-control" name="lastname" placeholder="surname" required>
                         @error('lastname')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
@@ -38,44 +38,44 @@
                 <div class="row mt-3">
                    
                     <div class="col-md-12"><label class="labels">Mobile Number</label>
-                        <input type="text" class="form-control" placeholder="enter phone number" name="phone">
+                        <input type="text" class="form-control" placeholder="enter phone number" name="phone" required>
                         @error('phone')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                    
                     <div class="col-md-12"><label class="labels">City</label>
-                        <input type="text" class="form-control" placeholder="enter city name" name="city">
+                        <input type="text" class="form-control" placeholder="enter city name" name="city" required>
                         @error('city')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>                 
                     <div class="col-md-12"><label class="labels">Country</label>
-                        <input type="text" class="form-control" placeholder="enter country name" name="country">
+                        <input type="text" class="form-control" placeholder="enter country name" name="country" required>
                         @error('country')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-12"><label class="labels">Rate</label>
-                        <input type="text" class="form-control" placeholder="enter your rate" name="rate">
+                        <input type="text" class="form-control" placeholder="enter your rate" name="rate" required>
                         @error('rate')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-12"><label class="labels">currency</label>
-                        <input type="text" class="form-control" placeholder="enter your prefered currency" name="currency">
+                        <input type="text" class="form-control" placeholder="enter your prefered currency" name="currency" required>
                         @error('currency')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-12"><label class="labels">email</label>
-                        <input type="text" class="form-control" placeholder="enter email" name="email">
+                        <input type="text" class="form-control" placeholder="enter email" name="email" required>
                         @error('email')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-12"><label class="labels">description </label>
-                        <input type="text" class="form-control" placeholder="description" name="description">
+                        <input type="text" class="form-control" placeholder="description" name="description" required>
                         @error('description')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror

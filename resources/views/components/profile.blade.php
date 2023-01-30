@@ -22,25 +22,22 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
-
 <div class="bg-gray-100" style="padding-bottom: 10px;padding-top:10px">
 
     <div class="container mx-auto my-5 p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
-            <!-- Left Side -->
+            <!-- Left Side -[]
             <div class="w-full md:w-3/12 md:mx-2">
-                <!-- Profile Card -->
+                <!-- Profile Card -[]
                 <div class="bg-white p-3 border-t-4 border-green-400">
                     <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
                             src="images/businessman.jpg"
                             alt="">
                     </div>
-                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{$userProfile['firstname']}} </h1>
                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit.
-                        Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{$userProfile['description']}}</p>
                     <ul
                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                         <li class="flex items-center py-3">
@@ -55,9 +52,9 @@
                     </ul>
                    <button><a href="/profileEdit" style="padding: 30px;color:greenyellow"></a></button> 
                 </div>
-                <!-- End of profile card -->
+                <!-- End of profile card -[]
                 <div class="my-4"></div>
-                <!-- Friends card -->
+                <!-- Friends card -[]
                 <div class="bg-white p-3 hover:shadow">
                     <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                         <span class="text-green-500">
@@ -96,12 +93,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of friends card -->
+                <!-- End of friends card -[]
             </div>
-            <!-- Right Side -->
+            <!-- Right Side -[]
             <div class="w-full md:w-9/12 mx-2 h-64">
-                <!-- Profile tab -->
-                <!-- About Section -->
+                <!-- Profile tab -[]
+                <!-- About Section -[]
                 <div class="bg-white p-3 shadow-sm rounded-sm">
                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                         <span clas="text-green-500">
@@ -117,49 +114,43 @@
                         <div class="grid md:grid-cols-2 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">First Name</div>
-                                <div class="px-4 py-2">Jane</div>
+                                <div class="px-4 py-2">{{$userProfile['firstname']}}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Last Name</div>
-                                <div class="px-4 py-2">Doe</div>
+                                <div class="px-4 py-2">{{$userProfile['lastname']}}</div>
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Gender</div>
-                                <div class="px-4 py-2">Female</div>
-                            </div>
+                           
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                <div class="px-4 py-2">+11 998001001</div>
+                                <div class="px-4 py-2">{{$userProfile['phone']}}</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                                <div class="px-4 py-2 font-semibold">City</div>
+                                <div class="px-4 py-2">{{$userProfile['city']}}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                                <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
+                                <div class="px-4 py-2">{{$userProfile['country']}}</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Email.</div>
+                                <div class="px-4 py-2 font-semibold">Email</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                    <a class="text-blue-800" href="mailto:jane@example.com">{{$userProfile['email']}}</a>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Birthday</div>
-                                <div class="px-4 py-2">Feb 06, 1998</div>
-                            </div>
+                         
                         </div>
                     </div>
                     <button
                         class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                         Full Information</button>
                 </div>
-                <!-- End of about section -->
+                <!-- End of about section -[]
 
                 <div class="my-4"></div>
 
-                <!-- Experience and education -->
+                <!-- Experience and education -[]
                 <div class="bg-white p-3 shadow-sm rounded-sm">
 
                     <div class="grid grid-cols-2">
@@ -219,9 +210,9 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End of Experience and education grid -->
+                    <!-- End of Experience and education grid -[]
                 </div>
-                <!-- End of profile tab -->
+                <!-- End of profile tab -[]
             </div>
         </div>
     </div>

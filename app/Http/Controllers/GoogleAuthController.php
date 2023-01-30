@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -19,10 +20,10 @@ class GoogleAuthController extends Controller
         try{
             //$google_user = Socialite::driver('google')->user();
             $google_user = Socialite::driver('google')->user();
-
+         //   dd($google_user->getId());
             $user = User::where('google_id', $google_user->getId())->first();
-
-            if(!$user) {
+ //dd($user);
+            if($user == null) {
 
                 $new_user = User::create([
                     'name' => $google_user->getName(),
@@ -30,12 +31,15 @@ class GoogleAuthController extends Controller
                     'google_id' => $google_user->getId()
                 ]);
                 Auth::login($new_user);
-
-                return redirect()->intended('/profileEdit');
+                //Session('test',$new_user);
+               //dd($new_user);
+               session(['user_id'=> Auth::id()]);
+                return redirect()->intended('/');
             }else{
+                
                 Auth::login($user);
-
-                return redirect()->intended('profileEdit');
+                session(['user_id'=> Auth::id()]);
+                return redirect()->intended('/');
             }
         }catch(\Throwable $th){
             dd('Something went wrong!'. $th->getMessage());

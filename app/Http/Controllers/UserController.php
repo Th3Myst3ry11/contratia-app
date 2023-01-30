@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -28,11 +29,12 @@ class UserController extends Controller
         $user = User::create($formFields);
 
         //email registered auth
-        event(new Registered($user));
+        //event(new Registered($user));
 
         auth()->login($user);
+        session(['user_id'=> Auth::id()]);
 
-        return redirect('/')->with('message', 'User created and logged in');
+        return redirect('/');
     }
 
       // Logout User
@@ -60,8 +62,8 @@ class UserController extends Controller
 
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
-
-            return redirect('/')->with('message', 'You are now logged in!');
+           session(['user_id'=> Auth::id()]);
+            return redirect('/');
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
