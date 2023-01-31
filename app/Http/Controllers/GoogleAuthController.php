@@ -33,12 +33,12 @@ class GoogleAuthController extends Controller
                 Auth::login($new_user);
                 //Session('test',$new_user);
                //dd($new_user);
-               session(['user_id'=> Auth::id()]);
+             //  session(['user_id'=> Auth::id()]);
                 return redirect()->intended('/');
             }else{
                 
                 Auth::login($user);
-                session(['user_id'=> Auth::id()]);
+              //  session(['user_id'=> Auth::id()]);
                 return redirect()->intended('/');
             }
         }catch(\Throwable $th){

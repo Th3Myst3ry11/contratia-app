@@ -81,8 +81,9 @@
                         @enderror
                     </div>
                 </div>
-                <div class="row mt-3">
-                   
+                <div class="row mt-3" id="skill-container">
+                   <input type="text" class="form-control" placeholder="skill" name="skill" id="skills" required>
+
                 </div>
                 <div class="mt-5 text-center"><input class="btn btn-primary profile-button" type="submit">Save Profile</div>
             </div>
@@ -95,6 +96,7 @@
 </div>
 </form>
 <script>
+    document.
     document.addEventListener('alpine:init', () => {
         Alpine.data('skillDisplay', () => ({
             skills: [{

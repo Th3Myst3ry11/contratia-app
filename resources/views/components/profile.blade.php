@@ -26,9 +26,9 @@
 
     <div class="container mx-auto my-5 p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
-            <!-- Left Side -[]
+             Left Side -[]
             <div class="w-full md:w-3/12 md:mx-2">
-                <!-- Profile Card -[]
+                 Profile Card -[]
                 <div class="bg-white p-3 border-t-4 border-green-400">
                     <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
@@ -52,9 +52,9 @@
                     </ul>
                    <button><a href="/profileEdit" style="padding: 30px;color:greenyellow"></a></button> 
                 </div>
-                <!-- End of profile card -[]
+                End of profile card -[]
                 <div class="my-4"></div>
-                <!-- Friends card -[]
+                 Friends card -[]
                 <div class="bg-white p-3 hover:shadow">
                     <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                         <span class="text-green-500">
@@ -93,12 +93,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- End of friends card -[]
+                 End of friends card -[]
             </div>
-            <!-- Right Side -[]
+            Right Side -[]
             <div class="w-full md:w-9/12 mx-2 h-64">
-                <!-- Profile tab -[]
-                <!-- About Section -[]
+                 Profile tab -[]
+                 About Section -[]
                 <div class="bg-white p-3 shadow-sm rounded-sm">
                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                         <span clas="text-green-500">
@@ -146,11 +146,11 @@
                         class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                         Full Information</button>
                 </div>
-                <!-- End of about section -[]
+                 End of about section -[]
 
                 <div class="my-4"></div>
 
-                <!-- Experience and education -[]
+                 Experience and education -[]
                 <div class="bg-white p-3 shadow-sm rounded-sm">
 
                     <div class="grid grid-cols-2">

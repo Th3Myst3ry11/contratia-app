@@ -24,7 +24,7 @@ class JobModel extends Model
     ];
 
     public function skillJobModel(){
-        return $this->hasMany(SkillJobModel::class);
+        return $this->hasMany(SkillJobModel::class,'job_fk');
     }
     
 }

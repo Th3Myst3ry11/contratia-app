@@ -15,10 +15,12 @@ class profileController extends Controller
 
     public function store(Request $request){
         $formFields = $request->all();
-        $formFields['user_fk'] = $request->session()->get('user_id');
+        $formFields['user_fk'] = auth()->user()->id;
         //sdd($formFields);
         ProfileModel::create($formFields);
-       $userProfile =  ProfileModel::where('user_fk',session('user_id'))->first();
+      // $userProfile =  ProfileModel::where('user_fk',session('user_id'))->first();
+       $userProfile = ProfileModel::find(auth()->user()->id);
+      
         //dd($userProfile['description']);
         return view('components.profile',compact('userProfile'));
        /* $formFields = $request->validate([

@@ -32,7 +32,7 @@ class UserController extends Controller
         //event(new Registered($user));
 
         auth()->login($user);
-        session(['user_id'=> Auth::id()]);
+       // session(['user_id'=> Auth::id()]);
 
         return redirect('/');
     }
@@ -62,7 +62,7 @@ class UserController extends Controller
 
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
-           session(['user_id'=> Auth::id()]);
+         //  session(['user_id'=> Auth::id()]);
             return redirect('/');
         }
 
