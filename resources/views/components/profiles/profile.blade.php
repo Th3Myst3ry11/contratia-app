@@ -1,4 +1,4 @@
-@extends('components/layout')
+@extends('layouts/app')
 
 @section('content')
 <style>
@@ -32,12 +32,13 @@
                 <div class="bg-white p-3 border-t-4 border-green-400">
                     <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
-                            src="images/businessman.jpg"
+                        
+                            src="{{asset('storage/images/'.$userProfile['file_path'])}}"
                             alt="">
                     </div>
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{$userProfile['firstname']}} </h1>
                     <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{$userProfile['description']}}</p>
+                    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{$userProfile['title']}}</p>
                     <ul
                         class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                         <li class="flex items-center py-3">
@@ -52,9 +53,9 @@
                     </ul>
                    <button><a href="/profileEdit" style="padding: 30px;color:greenyellow"></a></button> 
                 </div>
-                End of profile card -[]
+             
                 <div class="my-4"></div>
-                 Friends card -[]
+               
                 <div class="bg-white p-3 hover:shadow">
                     <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                         <span class="text-green-500">
@@ -93,12 +94,12 @@
                         </div>
                     </div>
                 </div>
-                 End of friends card -[]
+                 
             </div>
-            Right Side -[]
+            
             <div class="w-full md:w-9/12 mx-2 h-64">
-                 Profile tab -[]
-                 About Section -[]
+                
+                 
                 <div class="bg-white p-3 shadow-sm rounded-sm">
                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                         <span clas="text-green-500">
@@ -121,10 +122,7 @@
                                 <div class="px-4 py-2">{{$userProfile['lastname']}}</div>
                             </div>
                            
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                <div class="px-4 py-2">{{$userProfile['phone']}}</div>
-                            </div>
+                            
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">City</div>
                                 <div class="px-4 py-2">{{$userProfile['city']}}</div>
@@ -146,11 +144,11 @@
                         class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                         Full Information</button>
                 </div>
-                 End of about section -[]
+                
 
                 <div class="my-4"></div>
 
-                 Experience and education -[]
+                
                 <div class="bg-white p-3 shadow-sm rounded-sm">
 
                     <div class="grid grid-cols-2">
@@ -163,25 +161,18 @@
                                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
                                 </span>
-                                <span class="tracking-wide">Experience</span>
+                                <span class="tracking-wide">skills</span>
                             </div>
                             <ul class="list-inside space-y-2">
+                               
+                                @foreach ($userProfile['skill'] as $skill)
+                                    
+                               
                                 <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
+                                    <div class="text-teal-600">{{$skill}}</div>
                                     <div class="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div>
@@ -210,9 +201,9 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End of Experience and education grid -[]
+                  
                 </div>
-                <!-- End of profile tab -[]
+                
             </div>
         </div>
     </div>

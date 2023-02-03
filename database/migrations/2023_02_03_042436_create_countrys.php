@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('skills_profile', function (Blueprint $table) {
+        Schema::create('countrys', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('skill_name');
-            $table->string('skill_progress_number');
-            $table->bigInteger('profile_fk')->unsigned()->index();
-            $table->foreign('profile_fk')->references('id')->on('profile')->onDelete('cascade');
+            $table->string('country');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skills');
+        Schema::dropIfExists('countrys');
     }
 };

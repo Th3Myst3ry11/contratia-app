@@ -4,10 +4,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\search as ControllersSearch;
+use App\Http\Controllers\searchController;
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Livewire\Search;
 use App\Models\JobModel;
+use App\Models\ProfileModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +26,39 @@ use App\Models\JobModel;
 */
 
 Route::get('/', function () {
+   
     return view('components/main');
 });
-Route::get('/profile',function () {
-    return view('components/profile');
+Route::get('/searchFreelancer', function () {
+   
+    return view('components/searchPage');
+});
+Route::get('/jobs/create', function () {
+   
+    return view('components/gigs/post-project');
+});
+Route::post('/jobs/show', [JobsController::class, 'store']);
+
+Route::get('/filter', [app\http\Livewire\Search::class], 'render');
+Route::get('/searchTest', function () {
+   
+    return view('livewire.search');
+});
+Route::get("search",[searchController::class,'search']);
+//Route::get("search", [testController::class, 'search']);
+Route::get('/profile',[profileController::class, 'index']);
+
+Route::get('/show/{id}',function($id){
+    $userProfile = ProfileModel::find($id);
+    return view('components.profiles.profile',compact('userProfile'));
+});
+Route::get('/jobSearchPage', function () {
+   
+    return view('components/job-search-show');
 });
 Route::get('/profileEdit',function () {
-    return view('components/profileEdit');
-});
+    return view('components/profiles/profileEdit');
+})->name('profileSettings');
 
 Route::post('/users', [UserController::class, 'store']);
 
@@ -47,9 +77,13 @@ Route::post('/giga/create', [JobsController::class, 'store'] );
  
 Route::get('/gig/{id}', function ($id) {
     $gig = JobModel::find($id);
+    session('jobID', $id);
 
-    return view('components.gig-page', ['gig' => $gig]);
-});
+    return view('components.gigs.gig-page', ['gig' => $gig]);
+});Route::get('/gig/update/', [JobsController::class, 'update']);
+
+
+
 Route::get('/create-gig',function () {
     return view('components/post-project');
 });

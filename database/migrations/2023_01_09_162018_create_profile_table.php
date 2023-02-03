@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('firstname',50);
             $table->string('lastname',50);
-            $table->string('phone',50)->nullable();
             $table->string('email',50);
+            $table->string('title',50);
             $table->string('rate',50);
             $table->string('currency',10);
             $table->string('city',50);
             $table->string('country',50);
-            $table->json('skills');
+            $table->string('file_path')->nullable();
+            $table->json('skill');
             $table->integer('recomendations')->nullable();
             $table->text('description')->nullable();
             $table->bigInteger('user_fk')->unsigned()->index()->nullable();

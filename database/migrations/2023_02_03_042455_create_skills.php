@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('skills_job', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('skill_name');
-            $table->bigInteger('job_fk')->unsigned()->index();
-            $table->foreign('job_fk')
-                ->references('id')
-                ->on('job')
-                ->onDelete('cascade');
+        Schema::create('skills', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->string('skill');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skills_job');
+        Schema::dropIfExists('skills');
     }
 };

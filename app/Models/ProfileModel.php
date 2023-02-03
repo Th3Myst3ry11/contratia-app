@@ -12,14 +12,21 @@ class ProfileModel extends Model
 
     protected $primaryKey = 'id';
 
+    protected $casts = [
+        'skill' => 'array'
+    ];
+
     protected $fillable =[
         'firstname',
         'lastname',
-        'phone',
+        
         'email',
         'rate',
+        'title',
         'currency',
         'city',
+        'skill',
+        'file_path',
         'country',
         'description',
         'user_fk'

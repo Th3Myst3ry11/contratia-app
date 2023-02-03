@@ -13,6 +13,10 @@ class JobModel extends Model
 
     protected $primaryKey = 'id';
 
+    protected $casts = [
+        'skill' => 'array'
+    ];
+
     protected $fillable =[
         'title',
         'offer',
@@ -20,7 +24,8 @@ class JobModel extends Model
         'email',
         'phone',
         'country',
-        'city'
+        'city',
+        'skill'
     ];
 
     public function skillJobModel(){

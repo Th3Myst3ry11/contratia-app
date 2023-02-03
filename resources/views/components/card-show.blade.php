@@ -1,4 +1,4 @@
-@extends('components/layout')
+@extends('layouts/app')
 
 @section('content')
 <section class="flex flex-col items-center ">
