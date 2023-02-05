@@ -56,6 +56,10 @@ Route::get('/jobSearchPage', function () {
    
     return view('components/job-search-show');
 });
+Route::get('/job/create/project', function () {
+   
+    return view('components/gigs/post-project');
+});
 Route::get('/profileEdit',function () {
     return view('components/profiles/profileEdit');
 })->name('profileSettings');

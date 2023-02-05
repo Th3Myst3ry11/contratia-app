@@ -72,7 +72,7 @@
     
                 <a href="{{URL::to('/jobSearchPage')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
     
-                <a href="{{URL::to('/jobSearchPage')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create Project </a>
+                <a href="{{URL::to('/job/create/project')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create Project </a>
               </div>
             </div>
           </div>
